@@ -1,0 +1,13 @@
+# Ignore cache and environment folders
+__pycache__/
+.pytest_cache/
+env/
+
+# Ignore temporary or system files
+*.log
+*.tmp
+*.pyc
+.DS_Store
+
+# (Optional) ignore VS Code settings
+.vscode/
