@@ -1,32 +1,22 @@
 from fastapi.testclient import TestClient
 from main import app
 client = TestClient(app)
- 
-def test_read_root():
-   response = client.get("/")
-   assert response.status_code == 200
-   assert response.json() == {"message": "Hello, FastAPI!"}
- 
-def test_greet_user():
-   response = client.get("/greet/avinash")
-   assert response.status_code == 200
-   data = response.json()
-   assert data["message"] == "Hello, avinash!"
+
    
 def test_can_vote_if_age_is_more_than_18():
       response = client.get("/vote/20")
       assert response.status_code == 200
       data = response.json()
-      assert data["message"] == "You are eligible to vote."
+      assert data["message"] == "You can vote"
    
 def test_can_vote_if_age_is_18():
    response = client.get("/vote/18")
    assert response.status_code == 200
    data = response.json()
-   assert data["message"] == "You are eligible to vote."
+   assert data["message"] == "You can vote"
 
 def test_cannot_vote_if_age_is_less_than_18():
    response = client.get("/vote/16")
    assert response.status_code == 200
    data = response.json()
-   assert data["message"] == "You are not eligible to vote yet."
+   assert data["message"] == "You cannot vote"

@@ -22,4 +22,4 @@ def delete_sam():
 
 @app.patch("/patch-users")    
 def patch_sam():
-    return {"message": "This is a PATCH request"}   
+    return {"message": "This is a PATCH request"}

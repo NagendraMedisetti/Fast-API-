@@ -11,12 +11,8 @@ def get_current_user(token: str = Header(None)):
 
 
  
-@app.get("/profile")
+@app.get("/me")
 def profile(user = Depends(get_current_user)):
    return {"message": f"Welcome, {user['name']}!"}
- 
-@app.get("/settings")
-def settings(user = Depends(get_current_user)):
-   return {"message": f"{user['name']}'s settings page"}
 
 # inorder to test use /profile?token=secret123
